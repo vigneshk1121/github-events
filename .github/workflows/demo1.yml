@@ -1,8 +1,13 @@
 name: Events Demo 1
 on:
-  pull_request:
-    types: opened
+  pull_request: 
+    types: opened #activity Types
+    #https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request
   workflow_dispatch:
+  push:
+    branches: [main, 'dev-*']
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
